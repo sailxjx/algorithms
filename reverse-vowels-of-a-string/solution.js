@@ -1,15 +1,18 @@
 'use strict'
+require('should')
+
 /**
  * @param {string} s
  * @return {string}
  */
-module.exports = function (word) {
-  const vowels = ['a', 'o', 'e', 'i', 'u']
-  let answerArr = new Array(word.length)
-  let vowelStack = []
+var reverseVowels = function (s) {
+  var vowels = ['a', 'o', 'e', 'i', 'u']
+  var answerArr = new Array(s.length)
+  var vowelStack = []
+  var i, letter
 
-  for (let i in word) {
-    let letter = word[i]
+  for (i in s) {
+    letter = s[i]
     if (vowels.indexOf(letter.toLowerCase()) === -1) {
       answerArr[i] = letter
     } else {
@@ -17,12 +20,14 @@ module.exports = function (word) {
     }
   }
 
-  for (let i = 0; i < answerArr.length; i += 1) {
+  for (i = 0; i < answerArr.length; i += 1) {
     if (answerArr[i] === undefined) {
       answerArr[i] = vowelStack.pop()
     }
     if (vowelStack.length === 0) break
   }
-
   return answerArr.join('')
 }
+
+reverseVowels('hello').should.eql('holle')
+reverseVowels('leetcode').should.eql('leotcede')
