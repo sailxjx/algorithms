@@ -26,6 +26,6 @@ class Solution {
   }
 }
 
-Solution().reverseVowels("hello")
-Solution().reverseVowels("leetcode")
-Solution().reverseVowels("aA")
+Solution().reverseVowels("hello") == "holle"
+Solution().reverseVowels("leetcode") == "leotcede"
+Solution().reverseVowels("aA") == "Aa"
