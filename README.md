@@ -1,4 +1,7 @@
 Algorithms
 ===
 
-Solve one question on <https://leetcode.com> everyday!
+One problem each day
+
+[Swift](./swift.playground/Pages)
+[Base](./bash)

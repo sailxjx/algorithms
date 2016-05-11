@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='isomorphic-strings'/>
+        <page name='combination-sum-ii'/>
+        <page name='combinations'/>
+        <page name='minimum-path-sum'/>
+        <page name='permutation-sequence'/>
+        <page name='power-of-four'/>
+        <page name='rectangle-area'/>
+        <page name='reverse-vowels-of-a-string'/>
+        <page name='roman-to-integer'/>
+        <page name='super-ugly-number'/>
+        <page name='swap-nodes-in-pairs'/>
+    </pages>
+</playground>
