@@ -3,6 +3,7 @@
     <pages>
         <page name='isomorphic-strings'/>
         <page name='best-time-to-buy-and-sell-stock-with-cooldown'/>
+        <page name='best-time-to-buy-and-sell-stock-ii'/>
         <page name='best-time-to-buy-and-sell-stock'/>
         <page name='combination-sum-ii'/>
         <page name='combinations'/>
