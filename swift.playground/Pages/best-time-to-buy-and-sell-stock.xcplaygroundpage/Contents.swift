@@ -6,15 +6,11 @@
 
 class Solution {
   func maxProfit(prices: [Int]) -> Int {
-    var min = Int.max
+    var minPrice = Int.max
     var profit = 0
     for price in prices {
-      if price < min {
-        min = price
-      } else {
-        let diff = price - min
-        profit = diff > profit ? diff: profit
-      }
+      minPrice = min(price, minPrice)
+      profit = max(price - minPrice, profit)
     }
     return profit
   }

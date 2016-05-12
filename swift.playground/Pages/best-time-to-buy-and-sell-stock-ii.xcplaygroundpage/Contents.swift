@@ -6,32 +6,17 @@
 
 class Solution {
   func maxProfit(prices: [Int]) -> Int {
-    var min = -1
     var profit = 0
-    let count = prices.count
-    for i in 0..<count {
-      let today = prices[i]
-      if min == -1 {  // Try buy
-        if count - i > 1 {  // Exist tomorrow
-          if prices[i + 1] > today {
-            min = today  // Buy
-          }
-        }
-      } else {  // Try sell
-        if count - i > 1 {  // Exist tomorrow
-          if prices[i + 1] < today {
-            profit += today - min  // Sell
-            min = -1
-          }
-        } else if today > min {  // Sell last time
-          profit += today - min
-        }
-      }
+    guard prices.count > 1 else { return 0 }
+    for i in 0..<prices.count - 1 {
+      profit += max(prices[i + 1] - prices[i], 0)
     }
     return profit
   }
 }
 
+Solution().maxProfit([]) == 0
+Solution().maxProfit([1]) == 0
 Solution().maxProfit([1,2,3,0,2]) == 4
 Solution().maxProfit([1,9,10,20]) == 19
 Solution().maxProfit([10,30,1,10]) == 29
