@@ -2,6 +2,8 @@
 <playground version='6.0' target-platform='ios'>
     <pages>
         <page name='isomorphic-strings'/>
+        <page name='best-time-to-buy-and-sell-stock-with-cooldown'/>
+        <page name='best-time-to-buy-and-sell-stock'/>
         <page name='combination-sum-ii'/>
         <page name='combinations'/>
         <page name='minimum-path-sum'/>
