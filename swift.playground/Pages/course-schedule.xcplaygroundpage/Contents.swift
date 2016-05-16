@@ -24,34 +24,58 @@
   3. Topological sort could also be done via BFS.
 */
 
+// Reference: https://leetcode.com/discuss/35035/oo-easy-to-read-java-solution
+// OO DFS
 class Solution {
-  func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
-    guard prerequisites.count > 0 else { return true }
-    var allCourses = [Int: Set<Int>]()
-    for (_, coursePair) in prerequisites.enumerate() {
-      if allCourses[coursePair[0]] == nil { allCourses[coursePair[0]] = Set([]) }
-      if allCourses[coursePair[1]] == nil { allCourses[coursePair[1]] = Set([]) }
-      if coursePair.count > 1 {
-        allCourses[coursePair[0]] = Set([coursePair[1]])
-        // Check deep dependency
-        for (course, dependencies) in allCourses {
-          if dependencies.contains(coursePair[0]) {
-            if coursePair[1] == course {
-              // Circular dependency
-              return false
-            } else {
-              allCourses[course]?.insert(coursePair[1])
-            }
-          }
+
+  class Course {
+    var visited = false
+    var done = false
+    var preCourses = [Course]()
+
+    func addPre(preCourse: Course) {
+      preCourses.append(preCourse)
+    }
+  }
+
+  func isCyclic(course: Course) -> Bool {
+    if course.done { return false }
+    if course.visited { return true }
+    course.visited = true
+    if course.preCourses.count > 0 {
+      for preCourse in course.preCourses {
+        if isCyclic(preCourse) {
+          return true
         }
       }
     }
-    return allCourses.count == numCourses
+    course.done = true
+    return false
+  }
+
+  func canFinish(numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+    var courseList = [Int: Course]()
+    for i in 0..<numCourses {
+      courseList[i] = Course()
+    }
+    for couple in prerequisites {
+      let c1 = courseList[couple[0]]!
+      let c2 = courseList[couple[1]]!
+      c1.addPre(c2)
+    }
+    for i in 0..<numCourses {
+      if isCyclic(courseList[i]!) {
+        return false
+      }
+    }
+    return true
   }
 }
-
+//
 Solution().canFinish(1, []) == true
 Solution().canFinish(2, [[1,0]]) == true
 Solution().canFinish(2, [[1,0],[0,1]]) == false
-Solution().canFinish(3, [[1,2],[2,3],[3,1]]) == false
 Solution().canFinish(4, [[0,1],[2,3]]) == true
+Solution().canFinish(3, [[1,0]]) == true
+Solution().canFinish(4, [[0,1],[3,1],[1,3],[3,2]]) == false
+Solution().canFinish(3, [[0,1],[0,2],[1,2]]) == true
