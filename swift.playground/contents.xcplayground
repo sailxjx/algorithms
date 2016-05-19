@@ -14,6 +14,8 @@
         <page name='power-of-four'/>
         <page name='power-of-three'/>
         <page name='course-schedule'/>
+        <page name='word-search'/>
+        <page name='minimum-height-trees'/>
         <page name='rectangle-area'/>
         <page name='reverse-vowels-of-a-string'/>
         <page name='roman-to-integer'/>
