@@ -10,6 +10,7 @@
         <page name='combinations'/>
         <page name='path-sum-ii'/>
         <page name='minimum-path-sum'/>
+        <page name='maximum-depth-of-binary-tree'/>
         <page name='permutation-sequence'/>
         <page name='power-of-four'/>
         <page name='palindrome-number'/>
