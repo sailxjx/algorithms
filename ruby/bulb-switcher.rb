@@ -16,10 +16,32 @@
 #
 # So you should return 1, because there is only one bulb is on.
 
+# # @param {Integer} n
+# # @return {Integer}
+# def bulb_switch(n)
+#   # 0: off, 1: on
+#   bulbs = [0] * n
+#   for i in 0..n
+#     case i
+#     when 0 then bulbs.map! { |state| 0 }
+#     when 1 then bulbs.map! { |state| 1 }
+#     else bulbs = bulbs.each_with_index.map { |state, index| if (index + 1) % i == 0 then state ^ 1 else state end }
+#     end
+#   end
+#   bulbs = bulbs.find_all { |state| state == 1 }
+#   bulbs.length
+# end
+
+# https://leetcode.com/discuss/75014/math-solution
 # @param {Integer} n
 # @return {Integer}
 def bulb_switch(n)
-
+  Math.sqrt(n).floor
 end
 
+raise unless bulb_switch(0) == 0
+raise unless bulb_switch(1) == 1
+raise unless bulb_switch(2) == 1
 raise unless bulb_switch(3) == 1
+raise unless bulb_switch(4) == 2
+raise unless bulb_switch(99) == 9
