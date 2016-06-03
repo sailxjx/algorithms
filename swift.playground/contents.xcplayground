@@ -8,6 +8,7 @@
         <page name='combination-sum-ii'/>
         <page name='valid-anagram'/>
         <page name='maximum-product-subarray'/>
+        <page name='repeated-dna-sequences'/>
         <page name='excel-sheet-column-number'/>
         <page name='verify-preorder-serialization-of-a-binary-tree'/>
         <page name='maximum-subarray'/>
