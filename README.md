@@ -3,4 +3,7 @@
 One problem each day
 
 - [Swift](./swift.playground/Pages)
-- [Base](./bash)
+- [Python](./python)
+- [Ruby](./ruby)
+- [Sql](./sql)
+- [Bash](./bash)
